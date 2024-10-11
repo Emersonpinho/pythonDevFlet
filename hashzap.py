@@ -26,7 +26,7 @@ def main(pagina):
     
     # Botao inicial
     def abrir_popup(evento):
-        print("clicou no botão")
+        print("Clicou no botão")
 
     botao = ft.ElevatedButton("Iniciar chat", on_click=abrir_popup)
 
