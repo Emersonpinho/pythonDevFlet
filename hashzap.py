@@ -14,4 +14,21 @@
                     # Botão enviar
                         # Enviar mensegem
                         # Limpar a caixa de mensagem
+
+# importar o flet
+import flet as ft
+
+# criar uma função principal para rodar o seu app
+def main(pagina):
+    # Titulo
+    titulo = ft.Text("Hashzap")
+    pagina.add(titulo)
+
+    # Botao inicial
+    botao = ft.ElevatedButton("Iniciar chat")
+    pagina.add(botao)
+
+
+# execultar essa função com flet
+ft.app(main)
                         
