@@ -25,11 +25,22 @@ def main(pagina):
     # Titulo
     titulo = ft.Text("Hashzap")
 
+    def enviar_mensagem_tunel(mensagem):
+        # execultar oque eu quero que aconteça para
+        # todos os usuarios que receberam a mensagem
+        texto = ft.Text(mensagem)
+        chat.controls.append(texto)
+        pagina.update()
+
+
+    pagina.pubsub.subsribe(enviar_mensagem_tunel)
+
+ 
     def enviar_mensagem(evento):
         nome_usuario = caixa_nome.value
         texto_campo_mensagem = campo_enviar_mensagem.value
-        texto = ft.Text(f"{nome_usuario}: {texto_campo_mensagem}")
-        chat.controls.append(texto)
+        mensagem = f"{nome_usuario}: {texto_campo_mensagem}"
+        pagina.pubsub.send_all(mensagem)
         # limpar campo de enviar mensagem
         campo_enviar_mensagem.value = " "
         pagina.update()
@@ -57,8 +68,8 @@ def main(pagina):
 
         # adicionar no chat a mensagem " x usuario entrou no site no app"
         nome_usuario = caixa_nome.value
-        texto_mensagem = ft.Text(f"{nome_usuario} entrou no chat")
-        chat.controls.append(texto_mensagem)
+        mensagem = f"{nome_usuario} entrou no chat"
+        pagina.pubsub.send_all(mensagem)
         pagina.update()
 
     # Criar o popup
