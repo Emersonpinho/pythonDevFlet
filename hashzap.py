@@ -24,17 +24,22 @@ def main(pagina):
 
     # Titulo
     titulo = ft.Text("Hashzap")
+
+    campo_enviar_mensagem = ft.TextField(label="Digite aqui sua mensagem")
+    botao_enviar = ft.ElevatedButton("enviar")
     
     def entrar_chat(evento):
         # Fechar popup
         popup.open = False
-
         # sumir com titulo
         pagina.remove(titulo)
-
         # sumir com botão iniciar chat
         pagina.remove(botao)
-
+        # carregar chat
+        # carregar o campo de enviar mensagem
+        pagina.add(campo_enviar_mensagem)
+        # carregar o botao enviar
+        pagina.add(botao_enviar)
 
 
         pagina.update()
