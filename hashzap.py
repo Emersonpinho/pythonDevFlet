@@ -26,7 +26,7 @@ def main(pagina):
     
     # Criar o popup
     titulo_popup= ft.Text("Bem-vindo ao Hashzap")
-    caixa_nome = ft.TextField()
+    caixa_nome = ft.TextField(label="Digite seu nome")
     botao_popup = ft.ElevatedButton("Entrar no Chat")
 
     popup = ft.AlertDialog(title = titulo_popup, content = caixa_nome,
@@ -36,7 +36,7 @@ def main(pagina):
     def abrir_popup(evento):
         pagina.dialog = popup
         popup.open = True
-        print("Clicou no botão")
+        pagina.update()
 
     botao = ft.ElevatedButton("Iniciar chat", on_click=abrir_popup)
 
