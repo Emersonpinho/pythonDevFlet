@@ -33,7 +33,7 @@ def main(pagina):
         pagina.update()
 
 
-    pagina.pubsub.subsribe(enviar_mensagem_tunel)
+    pagina.pubsub.subscribe(enviar_mensagem_tunel)
 
  
     def enviar_mensagem(evento):
