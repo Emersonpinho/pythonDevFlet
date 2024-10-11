@@ -26,14 +26,17 @@ def main(pagina):
     titulo = ft.Text("Hashzap")
 
     def enviar_mensagem(evento):
-        texto = ft.Text(campo_enviar_mensagem.value)
+        nome_usuario = caixa_nome.value
+        texto_campo_mensagem = campo_enviar_mensagem.value
+        texto = ft.Text(f"{nome_usuario}: {texto_campo_mensagem}")
         chat.controls.append(texto)
+        # limpar campo de enviar mensagem
+        campo_enviar_mensagem.value = " "
         pagina.update()
 
-    campo_enviar_mensagem = ft.TextField(label="Digite aqui sua mensagem")
+    campo_enviar_mensagem = ft.TextField(label="Digite aqui sua mensagem",
+                                        on_submit=enviar_mensagem)
     botao_enviar = ft.ElevatedButton("enviar", on_click=enviar_mensagem)
-
-
     linha_enviar = ft.Row([campo_enviar_mensagem, botao_enviar])
 
     chat = ft.Column()
@@ -51,6 +54,11 @@ def main(pagina):
         # carregar o campo de enviar mensagem
         # carregar o botao enviar
         pagina.add(linha_enviar)
+
+        # adicionar no chat a mensagem " x usuario entrou no site no app"
+        nome_usuario = caixa_nome.value
+        texto_mensagem = ft.Text(f"{nome_usuario} entrou no chat")
+        chat.controls.append(texto_mensagem)
         pagina.update()
 
     # Criar o popup
