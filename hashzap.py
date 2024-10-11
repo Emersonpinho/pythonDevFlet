@@ -20,15 +20,20 @@ import flet as ft
 
 # criar uma função principal para rodar o seu app
 def main(pagina):
+
     # Titulo
     titulo = ft.Text("Hashzap")
-    pagina.add(titulo)
-
+    
     # Botao inicial
-    botao = ft.ElevatedButton("Iniciar chat")
+    def abrir_popup(evento):
+        print("clicou no botão")
+
+    botao = ft.ElevatedButton("Iniciar chat", on_click=abrir_popup)
+
+    # colocar os elementos da pagina
+    pagina.add(titulo)
     pagina.add(botao)
-
-
+    
 # execultar essa função com flet
 ft.app(main)
                         
